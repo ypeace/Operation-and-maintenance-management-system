@@ -14,5 +14,13 @@ module.exports = {
       template: 'index.tmpl.html',
       title: '芒果运维管理平台-登陆',
     },
+    'code/work_frame': {
+      template: 'index.tmpl.html',
+      title: '运营管理端'
+    },
+    'code/map_frame': {
+      template: 'index.tmpl.html',
+      title: '运营管理端'
+    },
   },
 };

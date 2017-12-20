@@ -1,0 +1,75 @@
+.box {
+  width: 100%;
+  padding-bottom: 120px;
+  background-color:darkslateblue;
+  :global {
+    .img-logo{
+      margin-left: 42%;
+      display: inline-block;
+      width:200px;
+      height:100px;
+      z-index: 10000;
+      margin-bottom:40px;
+    }
+    .login-form {
+      padding: 100px 0px 50px 0px;
+    }
+
+    .login-top {
+      width: 300px;
+      margin: 0 auto;
+    }
+    .login-ic {
+      background: rgba(255, 255, 255, 0.32);
+      margin-bottom: 1.5em;
+      height:30px;
+    }
+
+    .login-ic img {
+      padding-top:4px;
+      padding-left: 2px;
+      float: left;
+      display: inline-block;
+      border:0;
+      width:24px;
+      height:25px;
+    }
+    .login-ic input[type="text"], .login-ic input[type="password"] {
+      float: left;
+      background: none;
+      outline: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      padding: 6px 15px;
+      border: none;
+      border-left: 1px solid #fff;
+      width: 82%;
+      display: inline-block;
+      margin-left: 7px;
+    }
+    .log-bwn {
+      text-align: center;
+    }
+    .log-bwn input[type="button"] {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      padding: 13px 0;
+      background: #2da296;
+      display: inline-block;
+      width: 100%;
+      outline: none;
+      border: 3px solid #2da296;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+    .log-bwn input[type="button"]:hover {
+      transition: all 0.3s ease;
+      border: 3px solid #76c2ac;
+    }
+      .login-ic input[type="text"], .login-ic input[type="password"] {
+        width: 76%;
+      }
+  }
+}
