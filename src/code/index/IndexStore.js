@@ -6,7 +6,7 @@ export default class IndexStore extends FrameStore{
   userName = '';
 
   load() {
-    this.userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : '您还未登录'
+    this.userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : '和平'
     super.load();
   }
 
@@ -15,7 +15,7 @@ export default class IndexStore extends FrameStore{
   }
 
   menus = [{
-    name: '业务',
+    name: '业务2',
     icon: 'work',
     path: '/work',
     frameSrc: '/code/work_frame.html'
