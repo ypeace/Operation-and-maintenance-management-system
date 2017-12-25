@@ -1,29 +1,55 @@
 import FrameStore from '../FrameStore';
+import {logoutDeleteToken} from '../../service/root/logout'
 
 export default class IndexStore extends FrameStore{
   loading = true;
   error = null;
-  userName = '';
+  tel = '';
+  prompt = false;
+  hashName = '';
 
   load() {
-    this.userName = localStorage.getItem('userName') ? localStorage.getItem('userName') : '和平'
+    this.prompt = localStorage.getItem('tel') ? true : false;
+    this.tel = this.prompt ? localStorage.getItem('tel') : '未登录';
     super.load();
   }
 
   logout() {
-    window.location.href = '/login.html';
+    (async _ =>{
+      await logoutDeleteToken();
+      localStorage.clear();
+      window.location.href = '/login.html';
+    })().catch(error => {
+      console.error(error);
+      window.location.href = '/login.html';
+    })
   }
 
   menus = [{
-    name: '业务2',
-    icon: 'work',
-    path: '/work',
-    frameSrc: '/code/work_frame.html'
-  }, {
+    name: '用户',
+    icon: 'user',
+    path: '/user',
+    frameSrc: '/code/user_frame.html'
+  },{
     name: '地图',
     icon: 'map',
     path: '/map' ,
-    frameSrc: '/code/map_frame.html'
-  }]
+    frameSrc:'/code/map_frame.html'
+  },{
+    name: '组件测试页',
+    icon: 'work',
+    path: '/work',
+    frameSrc: '/code/work_frame.html'
+  },/*{
+    name: '站点',
+    icon: '',
+    path: '',
+    frameSrc: ''
+  },{
+    name: '巡检订单',
+    icon: '',
+    path: '',
+    frameSrc: ''
+  },*/];
 
 }

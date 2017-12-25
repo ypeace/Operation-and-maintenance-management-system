@@ -4,7 +4,7 @@ import LoginStore from './LoginStore';
 import style from './style.less';
 
 const LoginView = ({data, actions}) => {
-  const {userName, passWord} = data;
+  const {tel, passWord} = data;
   const {onUserKeyUP, onPassWordKeyUP, onLogin } = actions;
   return (
     <div className={style.box} >
@@ -24,9 +24,8 @@ const LoginView = ({data, actions}) => {
                 <input
                   type="text"
                   placeholder="User name"
-                  value={userName}
+                  value={tel}
                   onChange={ev =>{
-                    console.log(ev.target.value)
                     onUserKeyUP(ev.target.value)
                   }}
                 />
@@ -49,6 +48,7 @@ const LoginView = ({data, actions}) => {
                   value="登录"
                   onClick={_ => {
                     onLogin()
+                    // onLogin(userName,passWord)
                   }}
                 />
               </div>

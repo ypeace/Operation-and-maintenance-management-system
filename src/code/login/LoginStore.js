@@ -1,28 +1,30 @@
-import { checkToken, fetchConstants} from '../../service/root';
+import {loginGetToken, loginGetRoot} from '../../service/root/login';
+import md5 from '../../utils/md5';
 
 export default class IndexStore {
-  userName = '';
+  tel = '';
   passWord = '';
 
-  userKeyUP(value) {
-    this.userName = value?value:'';
+  telKeyUP(value) {
+    this.tel = value?value:'';
   }
 
   passWordKeyUP(value) {
     this.passWord = value?value:'';
   }
 
-  login(){
-    global.userName = this.userName;
-    localStorage.setItem("userName",this.userName);
+  login(tel='18888888888',password='123456'){
     (async _ => {
-      global.permissions = await checkToken();
-      // global.constants = await fetchConstants();
-      // window.location.href = '/';
+     const token = await loginGetToken({tel,password:md5(password) });
+      localStorage.setItem("token",token.token);
+      const roles = await loginGetRoot({tel,password});
+     setTimeout(()=>{
+       localStorage.setItem("roles",roles);
+       localStorage.setItem("tel",tel);
+       window.location.href = '/';
+     },20)
     })().catch(error => {
       console.error(error);
-      this.loading = false;
-      this.error = error;
     });
   }
 }

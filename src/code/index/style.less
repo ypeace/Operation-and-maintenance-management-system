@@ -1,20 +1,36 @@
+
 .index {
+  color:#ffffff;
+  font-size: 14px;
+  font-family: '微软雅黑';
+  background-color:#ffffff;
   display: flex;
   flex-direction: column;
   width:100%;
-  height:600px;
+  height:100%;
   :global {
     .header{
       width:100%;
-      height:40px;
-      background-color: darkslateblue;
+      height:60px;
+      background-color:rgba(0,0,0,0.6);
       padding-top: 10px;
+      position: relative;
+      overflow: hidden;
+      .logo{
+        float:left;
+        display: block;
+        width:200px;
+        height:80px;
+      }
       .logOut{
+        width:60px;
+        padding-top:10px;
         float: right;
         margin-right: 10px;
         cursor:pointer;
       }
       .header-txt{
+        padding-top:10px;
         width:200px;
         color:#ffffff;
         float: right;
@@ -22,30 +38,31 @@
     }
     main {
       width: 100%;
+      height: 100%;
       flex: 1;
       display: flex;
+      background-color:rgba(0,0,0,0.3);
       aside {
-        width: 72px;
-        border-right: 1px solid #e5e5e5;
-        box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+        width: 80px;
         z-index: 1;
-        button {
-          height: auto !important;
+        .menu {
+          height:70px !important;
           min-width: inherit !important;
           width: 100% !important;
-          padding: 16px 0 !important;
-          line-height: inherit !important;
-          border-radius: 0 !important;
-          > div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          &.active {
-            background-color: #e5e5e5 !important;
-            > div {
-            }
-          }
+          line-height: 70px !important;
+          color: #000000;
+          text-align: center;
+          border-bottom: 1px solid #dcdadb;
+          font-size: 14px;
+        }
+        .menu:hover{
+          background-color:rgba(0,0,0,0.5);
+          color:#fff;
+          cursor:pointer
+        }
+        .active{
+          background-color:rgba(0,0,0,0.5);
+          color:#fff;
         }
       }
       .frame {

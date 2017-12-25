@@ -2,15 +2,13 @@ import axios from 'axios';
 import clone from 'clone';
 const Toast = window.iziToast;//弹窗
 
-export default (host, end, version) =>{
+export default (host, end) =>{
   const ins = axios.create({//创建axios实例
-    baseURL: [host, end, version].filter(v => !!v).join('/')
+    baseURL: [host, end].filter(v => !!v).join('/')
   });
-  //添加请求拦截器 发送请求前
   ins.interceptors.request.use(request =>{
     request.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-    // request.headers['mg-region'] = localStorage.getItem('mg.filter.region') || '';
-    // request.headers['mg-style'] = localStorage.getItem('mg.filter.style') || '';
+    console.log('token:'+localStorage.getItem('token'),request.headers['Authorization']);
     if (request.params) {
       request.params = clone(request.params);
       Object.keys(request.params).forEach(key => {
@@ -25,18 +23,7 @@ export default (host, end, version) =>{
   ins.interceptors.response.use(response => {
     return response.data;
   }, error => {
-    let errorMessage;
-    if (error.response && error.response.data.redirect) {
-      window.location.href = error.response.data.redirect;
-    }
-    errorMessage = error.response ? error.response.data.error : error.message;
-    if (errorMessage) {
-      Toast.error({
-        title: '错误',
-        message: errorMessage
-      });
-    }
-    throw new Error(errorMessage || 'User abort');
+    console.log(error)
   });
 
   return ins;

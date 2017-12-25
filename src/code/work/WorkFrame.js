@@ -1,12 +1,6 @@
 import React from 'react';
-
+import SecondaryNaviView from '../SecondaryNaviView';
 import connect from 'connect-store';
 import WorkFrameStore from './WorkFrameStore';
 
-const WorkFrameView = ({ data, actions }) => {
-  return (
-    <div>hello world 我是业务页面</div>
-  );
-};
-
-export default _ => connect(WorkFrameView, new WorkFrameStore());
+export default _ => connect(({data,actions})=>{return <SecondaryNaviView {...{data, actions}}/> }, new WorkFrameStore());

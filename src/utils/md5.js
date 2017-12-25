@@ -1,0 +1,1 @@
+module.exports = (v, encode = 'hex') => require('crypto').createHash('md5').update(v).digest(encode);

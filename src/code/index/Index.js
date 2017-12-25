@@ -4,47 +4,52 @@ import IndexStore from './IndexStore';
 import style from "./style.less";
 
 const IndexView = ({data, actions}) => {
-  const {userName, menus, activeMenu,frameSrc} = data;
+  const {tel, menus, activeMenu, frameSrc, prompt} = data;
   const {onLogout, onOpen, onFrameLoaded} = actions;
-  console.log(frameSrc);
+  const height = document.documentElement.clientHeight;
+  const index = '-1';
   return (
-    <div className={style.index}>
-      <header className="header">
-        <button
-          className="logOut"
-          onClick={_ => {
-            onLogout()
-          }}
-        >退出登录
-        </button>
-        <p
-          className="header-txt"
-        >你好,{userName}</p>
-      </header>
-      <main>
-        <aside>
-          {menus.map((menu, index) => {
-            const {icon, name} = menu;
-            const active = activeMenu === menu;
-            return (
-              <button
-                key={index}
-                onClick={()=>{
+    <div style={{height}}>
+      <div className={style.index}>
+        <header
+          className="header">
+          <img
+            className="logo"
+            src='./image/logo.png'/>
+          <div
+            className="logOut"
+            onClick={_ => {
+              onLogout()
+            }}
+          >{prompt ? "退出登录" : '请登录'}
+          </div>
+          <p
+            className="header-txt"
+          >登录账号：{tel}</p>
+        </header>
+        <main>
+          <aside>
+            {menus.map((menu, index) => {
+              const hashName = window.location.hash?window.location.hash.split('#')[1].split('/')[0]:'';
+              const active = hashName === menu.icon;
+              return (
+                <div
+                  className={active ? "menu" + " active" : "menu"}
+                  key={index}
+                  onClick={() => {
                     onOpen(menu);
-                    console.log(menu)
-                }
-                }
-                className={active ? 'active' : ''}
-              >
-                {menu.name}
-              </button>
-            );
-          })
-          }
-        </aside>
-        <iframe onLoad={onFrameLoaded} className="frame" src={frameSrc}> </iframe>
-      </main>
+                  }}>
+                  {menu.name}
+                </div>
+              );
+            })
+            }
+          </aside>
+          <iframe onLoad={onFrameLoaded} className="frame" src={frameSrc}></iframe>
+        </main>
+      </div>
     </div>
+
   );
 };
 

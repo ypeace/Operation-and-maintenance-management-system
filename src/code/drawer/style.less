@@ -1,0 +1,46 @@
+.drawer {
+  position: fixed;
+  height: 100%;
+  padding: 8px 0;
+  padding-left: 8px;
+  box-sizing: border-box;
+  top: 0;
+  right: -8px;
+  transition: .3s;
+  width: 0;
+  &.open {
+    width: 1040px;
+  }
+  :global {
+    .close-btn {
+      padding: 5px 10px;
+      color:#f1a433;
+      position: absolute !important;
+      left: 30px;
+      top: 18px;
+      font-size: 16px;
+    }
+    .close-btn:hover{
+      box-shadow:0px 0px 5px 0px #666;
+    }
+    .container {
+      box-shadow:0px 0px 10px 0px #666;
+      background-color:#ffffff;
+      padding: 16px;
+      padding-top: 48px;
+      height: 100%;
+      h1 {
+        position: absolute;
+        left: 98px;
+        top: 8px;
+        line-height: 48px;
+        font-size: 18px;
+      }
+      .frame {
+        width: 1000px;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+}
