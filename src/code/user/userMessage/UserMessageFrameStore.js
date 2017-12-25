@@ -31,7 +31,7 @@ export default class UserMessageFrameStore {
   _onChangeLocation (location) {
     const re = parserRoutes(['/:id'], location.pathname);
     if(!re) return this.drawerStore.close();
-    this.drawerStore.open(`用户详情[用户id：${re.id}]`, 'http://www.17sucai.com/preview/1/2017-08-17/YhhDataTable/index.html');
+    this.drawerStore.open(`用户详情——[用户id：${re.id}]`, 'http://www.17sucai.com/preview/1/2017-08-17/YhhDataTable/index.html');
   }
 
   showDetail (user) {

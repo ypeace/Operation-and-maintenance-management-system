@@ -16,10 +16,10 @@ export default class WorkFrameStore extends FrameStore {
     icon:'inspector',
     path: '/inspector',
     frameSrc: '/code/user/inspector_frame.html'
-  },{
+  }/*,{
     name: '仓库管理员',
     icon:'storekeeper',
     path: '/storekeeper',
     frameSrc: '/code/user/storekeeper_frame.html'
-  }]
+  }*/]
 }

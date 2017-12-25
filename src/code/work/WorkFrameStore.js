@@ -9,7 +9,7 @@ export default class WorkFrameStore extends FrameStore {
   },{
     name: '布局展示',
     icon:'layout',
-    path: '/layout',
-    frameSrc:'/code/work/layout_frame.html'
+    path: '/assembly',
+    frameSrc:'/code/work/layout_frame.html'//偷懒没写
   }]
 }

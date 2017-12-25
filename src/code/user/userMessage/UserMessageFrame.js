@@ -9,12 +9,11 @@ import Table from '../../../components/layout/Table';
 import Button from '../../../components/control/Button';
 
 
-
 const WorkFrameView = ({data, actions}) => {
   let {tableLists, drawerStore} = data;
   const {onShowDetail} = actions;
-
-  tableLists=[{_id:111},{_id:111},{_id:111},{_id:111},{_id:111},{_id:111},{_id:111},];
+  //模拟请求后获取的数据
+  tableLists = [{name: '佩奇', _id: 111}, {name: '柯南', _id: 222, tel: '1888888888'}, {name: '小黄人', _id: 333}, {name: '小羊肖恩', _id: 444}, {name: '千寻',_id: 111}];
 
   const columns = [/* {
     name: 'id',
@@ -22,32 +21,31 @@ const WorkFrameView = ({data, actions}) => {
   }, */{
     name: '用户姓名',
     render: row => row.name
-  },{
+  }, {
     name: '身份证认证',
     render: row => <Button
-      onClick={()=>{
-        console.log(row.idCardInfo)
+      onClick={() => {
+        onShowDetail(row);
       }}
     >查看详情</Button>
-  },{
+  }, {
     name: '巡检身份认证',
     render: row => <Button
-      onClick={_=>{
+      onClick={_ => {
         onShowDetail(row);
-        console.log(row.inspectorInfo)
       }}
     >查看详情</Button>
   }, {
     name: '手机号',
     render: row => row.tel
-  } ,{
+  }, {
     name: '是否启用',
-    render: row => row.enable?'√':'X'
+    render: row => row.enable ? '√' : 'X'
   }, {
     name: '账户角色',
     render: row => row.avatar
   }, {
-    name: '权限',
+    name: 'ID',
     render: row => row._id
   }/*,{
     name: '仓管身份认证',

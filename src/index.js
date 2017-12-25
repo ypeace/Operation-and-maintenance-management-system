@@ -28,11 +28,11 @@ module.exports = {
     },
     'code/work_frame': {
       template: 'index.tmpl.html',
-      title: '运营管理'
+      title: ''
     },
     'code/work/assembly_frame': {
       template: 'index.tmpl.html',
-      title: '运营管理'
+      title: ' '
     },
     'code/map_frame': {
       template: 'index.tmpl.html',
