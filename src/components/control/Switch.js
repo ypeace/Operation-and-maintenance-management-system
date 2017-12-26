@@ -1,10 +1,10 @@
 import React from 'react';
 import style from './style.less';
 
-export default ({ className, label, toggled, onToggle }) => {
+export default ({ className, label, toggled, onToggle= _ =>{} }) => {
   return (
     <a
-      className={[style.switch, className].join(' ')}
+      className={[style.toggle, className].join(' ')}
       onClick={_ => onToggle(!toggled)}
     >
       <i

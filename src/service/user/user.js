@@ -11,4 +11,12 @@ export async function fetchUserLists({query = {}, limit = 20, skip, sort = {_id:
   });
 }
 
-
+export async function fetchUserDetailById({id}) {
+  return await v1({
+    url: `/v1/user/${id}`,
+    params: {
+      selector: 'enable tel name roles permissions avatar idCardInfo inspectorInfo stationManager',
+      populateSelector: {}
+    }
+  });
+}

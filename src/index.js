@@ -20,19 +20,27 @@ module.exports = {
     },
     'code/user/userMessage_frame': {
       template: 'index.tmpl.html',
-      title: '用户管理'
+      title: '用户管理-用户信息展示'
+    },
+    'code/user/userDetail_frame': {
+      template: 'index.tmpl.html',
+      title: '用户管理-用户信息展示-用户信息详情'
     },
     'code/user/inspector_frame': {
       template: 'index.tmpl.html',
       title: '巡检管理'
     },
+    'code/user/inspectorDetail_frame': {
+      template: 'index.tmpl.html',
+      title: '巡检管理'
+    },
     'code/work_frame': {
       template: 'index.tmpl.html',
-      title: ''
+      title: '运营管理'
     },
     'code/work/assembly_frame': {
       template: 'index.tmpl.html',
-      title: ' '
+      title: '运营管理'
     },
     'code/map_frame': {
       template: 'index.tmpl.html',

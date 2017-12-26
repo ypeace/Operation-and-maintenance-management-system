@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './style.less';
 
-export default ({ dataSource = [], columns = [], className, onClick = _ => null }) => {
+export default ({dataSource = [], columns = [], className}) => {
   return (
     <table className={[style.table, className].join(' ')}>
       <thead>
@@ -10,12 +10,12 @@ export default ({ dataSource = [], columns = [], className, onClick = _ => null 
           <td>{column.name}</td>
         ))}
       </tr>
-      </thead>
+      </thead >
       <tbody>
       {dataSource.map((row, index) => {
         return (
           <tr
-            key={index}>{columns.map(({ render = _ => null }, index) => {
+            key={index}>{columns.map(({render = _ => null}, index) => {
             return <td key={index}>{render(row)}</td>;
           })}</tr>
         );

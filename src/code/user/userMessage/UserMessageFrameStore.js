@@ -12,6 +12,7 @@ export default class UserMessageFrameStore {
   drawerStore = new DrawerFrameStore();
 
   load() {
+
     this._onChangeLocation(history.location);
     history.listen(this._onChangeLocation.bind(this));
     this._fetchUserLists();
@@ -29,13 +30,15 @@ export default class UserMessageFrameStore {
   }
 
   _onChangeLocation (location) {
+    console.log(location)
     const re = parserRoutes(['/:id'], location.pathname);
+    console.log(re);
     if(!re) return this.drawerStore.close();
-    this.drawerStore.open(`用户详情——[用户id：${re.id}]`, 'http://www.17sucai.com/preview/1/2017-08-17/YhhDataTable/index.html');
+    this.drawerStore.open(`用户详情[用户id：${re.id}]`, `/code/user/userDetail_frame.html#${re.id}`);
   }
 
-  showDetail (user) {
-    history.push(`/${user._id}`);
+  showDetail (id) {
+    history.push(`/${id}`);
   }
 
 }

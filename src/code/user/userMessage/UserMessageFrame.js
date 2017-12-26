@@ -7,45 +7,46 @@ import Box from '../../../components/layout/Box';
 import Container from '../../../components/layout/Container';
 import Table from '../../../components/layout/Table';
 import Button from '../../../components/control/Button';
+import Switch from '../../../components/control/Switch';
 
 
 const WorkFrameView = ({data, actions}) => {
   let {tableLists, drawerStore} = data;
   const {onShowDetail} = actions;
   //模拟请求后获取的数据
-  tableLists = [{name: '佩奇', _id: 1111}, {name: '柯南', _id: 222, tel: '1888888888'}, {name: '小黄人', _id: 333}, {name: '小羊肖恩', _id: 444}, {name: '千寻',_id: 111}];
-
-  const columns = [/* {
+  tableLists&&tableLists.length?null:(tableLists = [{name: '佩奇', _id: 111,enable:'true'}, {name: '柯南', _id: 222, tel: '1888888888',enable:'false'}, {name: '小黄人', _id: 333}, {name: '小羊肖恩', _id: 444,enable:'true'}, {name: '千寻',_id: 111}])
+  const columns = [
+    /* {
     name: 'id',
     render: row => row._id
   }, */{
     name: '用户姓名',
     render: row => row.name
-  }, {
+  },{
     name: '身份证认证',
     render: row => <Button
-      onClick={() => {
-        onShowDetail(row);
+      onClick={()=>{
+        onShowDetail(row._id);
       }}
     >查看详情</Button>
-  }, {
+  },{
     name: '巡检身份认证',
     render: row => <Button
-      onClick={_ => {
-        onShowDetail(row);
+      onClick={_=>{
+        onShowDetail(row._id);
       }}
     >查看详情</Button>
   }, {
     name: '手机号',
     render: row => row.tel
-  }, {
+  } ,{
     name: '是否启用',
-    render: row => row.enable ? '√' : 'X'
+    render: row => <Switch toggled={row.enable}/>
   }, {
     name: '账户角色',
     render: row => row.avatar
   }, {
-    name: 'ID',
+    name: '权限',
     render: row => row._id
   }/*,{
     name: '仓管身份认证',
@@ -57,6 +58,7 @@ const WorkFrameView = ({data, actions}) => {
       <Box>
         {/*<Nav> 用户管理 </Nav>*/}
         <Container>筛选条件</Container>
+
         <Container>
           <Table
             columns={columns}

@@ -8,7 +8,6 @@ export default (host, end) =>{
   });
   ins.interceptors.request.use(request =>{
     request.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
-    console.log('token:'+localStorage.getItem('token'),request.headers['Authorization']);
     if (request.params) {
       request.params = clone(request.params);
       Object.keys(request.params).forEach(key => {
