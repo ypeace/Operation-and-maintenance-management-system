@@ -13,7 +13,7 @@ const WorkFrameView = ({data, actions}) => {
   let {tableLists, drawerStore} = data;
   const {onShowDetail} = actions;
   //模拟请求后获取的数据
-  tableLists = [{name: '佩奇', _id: 111}, {name: '柯南', _id: 222, tel: '1888888888'}, {name: '小黄人', _id: 333}, {name: '小羊肖恩', _id: 444}, {name: '千寻',_id: 111}];
+  tableLists = [{name: '佩奇', _id: 1111}, {name: '柯南', _id: 222, tel: '1888888888'}, {name: '小黄人', _id: 333}, {name: '小羊肖恩', _id: 444}, {name: '千寻',_id: 111}];
 
   const columns = [/* {
     name: 'id',
