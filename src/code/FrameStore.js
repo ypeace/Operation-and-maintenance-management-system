@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV === 'development';
 
 export default class FrameStore {
   menus = [{
-    name: '导航1',
+    name: '导航0',
     path: '/nav1',
     frameSrc: ''
   }, {
