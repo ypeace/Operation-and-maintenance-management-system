@@ -1,15 +1,27 @@
-import {fetchUserLists} from '../../../service/user/user';
-import DrawerFrameStore from '../../drawer/DrawerFrameStore';
+
 import parserRoutes from '../../../utils/parseRoutes';
 import history from '../../../utils/history';
+
+import {fetchUserLists} from '../../../service/user/user';
+
+import DialogFrameStore from '../../../components/control/Dialog/DialogFrameStore';
+import DrawerFrameStore from '../../drawer/DrawerFrameStore';
 
 export default class UserMessageFrameStore {
 
   loading = false;
   error = null;
   tableLists = [];
-
+  dialogStore =  new DialogFrameStore;
   drawerStore = new DrawerFrameStore();
+
+  closeDialog(){
+    this.dialogStore.close()
+  }
+
+  openDialog(title,content,bottom){
+    this.dialogStore.open(title,content,bottom)
+  }
 
   load() {
 

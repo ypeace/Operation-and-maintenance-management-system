@@ -19,7 +19,7 @@
       padding: 20px;
       .contain {
         width: 440px;
-        min-height: 200px;
+        min-height: 800px;
         border: 1px solid #fff;
         border-radius: 8px;
         background-color: #ffffff;
@@ -43,7 +43,7 @@
 }
 
 .container {
-  width: 1000px;
+  width: 1100px;
   min-width: 800px;
   min-height: 40px;
   padding: 10px;
@@ -131,28 +131,35 @@
   margin: 8px 0;
 }
 
+.contain{
+  width:1080px;
+  min-height: 520px;
+  overflow-x:scroll;
+}
 .table {
   width: 100%;
   border-collapse: collapse;
   :global {
     td {
       font-size: 12px;
-      padding: 2px 12px;
       text-align: center;
       border: 1px solid #e5e5e5;
+      min-width:40px;
     }
     thead {
-      line-height: 36px;
+      line-height: 30px;
       color: #000;
       font-size: 14px;
       td {
-        padding: 2px 10px;
+        padding: 2px 2px;
         text-align: center;
         background-color: #cbcbcb;
       }
     }
     tbody {
       color: #666;
+      line-height: 20px;
+
       tr:nth-child(odd) {
         background-color: #f7f7f7;
       }
@@ -165,9 +172,7 @@
         &:last-child {
           border-right: none;
         }
-
       }
-
     }
   }
 

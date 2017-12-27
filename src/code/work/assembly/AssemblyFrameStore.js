@@ -1,4 +1,4 @@
-import DialogFrameStore from '../../../components/control/ComponentAndDialog/DialogFrameStore';
+import DialogFrameStore from '../../../components/control/Dialog/DialogFrameStore';
 
 
 export default class UserMessageFrameStore {
@@ -8,11 +8,14 @@ export default class UserMessageFrameStore {
 
   show = false;
   onOff = true;
-
   dialogStore =  new DialogFrameStore;
 
-  abc(){
-    this.dialogStore.open()
+  closeDialog(){
+    this.dialogStore.close()
+  }
+
+  openDialog(title,content,bottom){
+    this.dialogStore.open(title,content,bottom)
   }
 
   toggleDialog () {

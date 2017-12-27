@@ -1,0 +1,62 @@
+.dialog {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  &.open {
+    display: block;
+  }
+  :global {
+    .close-btn:hover {
+      box-shadow: 0px 0px 5px 0px #666;
+    }
+    .container {
+      min-width: 600px;
+      min-height: 320px;
+      box-shadow: 15px 25px 30px 5px #666;
+      position: absolute;
+      left: 18%;
+      top: 20%;
+      background-color: #f5f5f5;
+      width: 50%;
+      .content {
+        min-height: 300px;
+        h1 {
+          width: 100%;
+          line-height: 46px;
+          height: 46px;
+          font-size: 18px;
+          border: 1px solid #e2e2e2;
+          border-left: 5px solid #019688;
+          background-color: #f2f2f2;
+          font-weight: 500;
+        }
+        .text {
+          line-height: 24px;
+          padding-left: 10px;
+          width: 100%;
+          min-height: 250px;
+          word-wrap: break-word
+        }
+
+      }
+      p {
+        height:40px;
+        padding-right: 20px;
+        line-height: 40px;
+        position: relative;
+        bottom:0;
+        left:0;
+        button {
+          float:right;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
