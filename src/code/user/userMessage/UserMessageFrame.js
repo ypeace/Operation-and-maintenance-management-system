@@ -8,12 +8,13 @@ import Container from '../../../components/layout/Container';
 import Table from '../../../components/layout/Table';
 import Button from '../../../components/control/Button';
 import Switch from '../../../components/control/Switch';
+import ChangeInput from '../../../components/control/ChangeInput';
 import DialogFrameView from '../../../components/control/Dialog/DialogFrameView'
 import CheckBox from '../../../components/control/CheckBox';
 
 const WorkFrameView = ({data, actions}) => {
   let {tableLists, drawerStore, dialogStore, ROLES, ROLES_MAP} = data;
-  const {onShowDetail, onOpenDialog, onCloseDialog, onAddRolesRequest, onDeleteRolesRequest} = actions;
+  const {onShowDetail, onOpenDialog, onCloseDialog, onAddRolesRequest, onDeleteRolesRequest, onSetAccountRoot, onAddRoot} = actions;
 
   //模拟请求后获取的数据
   tableLists && tableLists.length ? null : (tableLists = [{
@@ -28,7 +29,7 @@ const WorkFrameView = ({data, actions}) => {
     enable: 'true'
   }, {name: '千寻', _id: 111}]);
 
-
+//账户角色弹窗内容渲染
   const renderSelect = (roles, targetArr, id) => {
     return Object.values(roles).map((item, index) => {
         const boolean = targetArr.find(a => {
@@ -50,6 +51,27 @@ const WorkFrameView = ({data, actions}) => {
       }
     )
   };
+
+  const renderPermission = (row) => {
+    return <div>
+      <div>
+        <span>权限管理：{row.permissions&&row.permissions.length ? row.permissions.map((item) => <span
+          style={{marginRight: '5px'}}>{item}</span>) : '没有额外的权限'}</span>
+      </div>
+      <br/><br/>
+      <div>
+        <ChangeInput
+          name='增加权限'
+          defaultValue='请输入文字'
+          parameter={row._id}
+          onClick={(id, value) => {
+            value ? onAddRoot(id, value) : ''
+          }}
+        />
+      </div>
+    </div>
+  };
+
   const columns = [
     {
       name: 'id',
@@ -62,21 +84,15 @@ const WorkFrameView = ({data, actions}) => {
       render: row => row.tel
     }, {
       name: '是否启用',
-      render: row => <Switch toggled={row.enable}/>
-    }, {
-      name: '用户身份资料',
-      render: row => <Button
-        onClick={() => {
-          onShowDetail(row._id);
-        }}
-      >打开详情</Button>
-    }, {
-      name: '巡检相关信息',
-      render: row => <Button
-        onClick={_ => {
-          onShowDetail(row._id);
-        }}
-      >打开详情</Button>
+      render: (row) => {
+        return (<Switch
+          onToggle={() => {
+            onSetAccountRoot(row._id, !row.enable)
+          }
+          }
+          toggled={row.enable}
+        />)
+      }
     }, {
       name: '账户角色',
       render: row => <div>
@@ -94,15 +110,27 @@ const WorkFrameView = ({data, actions}) => {
         >更改</Button>
       </div>
     }, {
-      name: '权限',
+      name: '用户详细资料',
       render: row => <Button
-        onClick={_ => {
-          onOpenDialog('权限')
+        onClick={() => {
+          onShowDetail(row._id);
         }}
-      >查看</Button>
+      >打开详情</Button>
+    }, {
+      name: '权限',
+      render: row => <div>
+        <Button
+          onClick={_ => {
+            onOpenDialog('权限', renderPermission(row), <Button
+              onClick={() => {
+                onCloseDialog()
+              }}
+            >关闭</Button>)
+          }}
+        >查看</Button></div>
     }, {
       name: '所属仓库',
-      render: row => row.stationManager && row.stationManager.station ? 'row.stationManager.station' : '非仓库管理员'
+      render: row => row.stationManager && row.stationManager.station && row.stationManager.station.name ? row.stationManager.station.name : '无所属仓库'
     }];
 
   return (

@@ -2,7 +2,7 @@
 import parserRoutes from '../../../utils/parseRoutes';
 import history from '../../../utils/history';
 
-import {fetchUserLists, addRoles, deleteRoles} from '../../../service/user/user';
+import {fetchUserLists, addRoles, deleteRoles, accountRoot, addRoot} from '../../../service/user/user';
 
 import DialogFrameStore from '../../../components/control/Dialog/DialogFrameStore';
 import DrawerFrameStore from '../../drawer/DrawerFrameStore';
@@ -91,4 +91,28 @@ export default class UserMessageFrameStore {
       this.error = error;
     })
   }
+
+  //是否可用
+  setAccountRoot (id,enable){
+    (async ()=>{
+      await accountRoot({id,enable})
+        this.load();
+    })().catch(error =>{
+      this.error = error;
+    })
+  }
+
+  //增加权限
+  AddRoot (id,permission){
+    (async ()=>{
+      await addRoot({id,permission})
+      setTimeout(()=>{
+        this.dialogStore.close()
+      },100);
+      this.load();
+    })().catch(error =>{
+      this.error = error;
+    })
+  }
+
 }
