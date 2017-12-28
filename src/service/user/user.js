@@ -20,3 +20,17 @@ export async function fetchUserDetailById({id}) {
     }
   });
 }
+
+export async function addRoles({id,role}) {
+  return await v1({
+    url: `/v1/user/${id}/role/${role}`,
+    method:'POST'
+  });
+}
+
+export async function deleteRoles({id,role}) {
+  return await v1({
+    url: `/v1/user/${id}/role/${role}`,
+    method:'DELETE'
+  });
+}

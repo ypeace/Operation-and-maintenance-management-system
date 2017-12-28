@@ -2,7 +2,7 @@
 import parserRoutes from '../../../utils/parseRoutes';
 import history from '../../../utils/history';
 
-import {fetchUserLists} from '../../../service/user/user';
+import {fetchUserLists, addRoles, deleteRoles} from '../../../service/user/user';
 
 import DialogFrameStore from '../../../components/control/Dialog/DialogFrameStore';
 import DrawerFrameStore from '../../drawer/DrawerFrameStore';
@@ -14,6 +14,18 @@ export default class UserMessageFrameStore {
   tableLists = [];
   dialogStore =  new DialogFrameStore;
   drawerStore = new DrawerFrameStore();
+  ROLES = {
+    超级管理员: 'super',
+    管理员: 'admin',
+    线上运营: 'manager',
+    巡检人员: 'inspector',
+    仓库管理员: 'storage',
+  };
+
+  ROLES_MAP = Object.keys(this.ROLES).reduce((memo, role) => {
+    memo[this.ROLES[role]] = role;
+    return memo;
+  }, {});
 
   closeDialog(){
     this.dialogStore.close()
@@ -53,4 +65,30 @@ export default class UserMessageFrameStore {
     history.push(`/${id}`);
   }
 
+  //角色改变
+  addRolesRequest(id,role) {
+    console.log(id,role);
+    (async () => {
+      await addRoles({id,role});
+      setTimeout(()=>{
+        this.dialogStore.close()
+      },500);
+      this.load();
+    })().catch(error =>{
+      this.error = error;
+    })
+  }
+
+  //角色改变
+  deleteRolesRequest(id,role) {
+    (async () => {
+      await deleteRoles({id,role});
+      setTimeout(()=>{
+        this.dialogStore.close()
+      },500);
+      this.load();
+    })().catch(error =>{
+      this.error = error;
+    })
+  }
 }

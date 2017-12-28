@@ -11,10 +11,10 @@
     i {
       font-size: 18px;
       &.fa-toggle-on {
-        color:#71c2ac;
+        color: #71c2ac;
       }
       &.fa-toggle-off {
-        color:#999;
+        color: #999;
       }
     }
   }
@@ -24,23 +24,6 @@
   }
 }
 
-.checkbox {
-  cursor: pointer;
-  user-select: none;
-  margin-right: 8px;
-  :global {
-    i {
-      &.fa-check-square {
-        color: @primary-color;
-      }
-    }
-  }
-  :before {
-    display: inline-block;
-    width: 14px;
-    margin-right: 8px;
-  }
-}
 
 .sort-item {
   width: 90px;
@@ -109,7 +92,7 @@
 }
 
 .button {
-  margin:2px;
+  margin: 2px;
   padding: 4px 8px;
   border-radius: 0;
   border: none;
@@ -118,9 +101,9 @@
   transition: .3s;
   cursor: pointer;
   background-color: #ffffff;
-  color:#1ba196;
+  color: #1ba196;
   &:hover {
-    cursor:pointer;
+    cursor: pointer;
     background-color: #e5e5e5;
   }
   &:active {
@@ -139,6 +122,43 @@
     background-color: @primary-color;
     color: #ffffff;
     font-size: 16px;
+  }
+}
+
+.checkbox {
+  height:20px;
+  margin-top:12px;
+  cursor:pointer;
+  :global {
+    i {
+      font-style: normal;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      font-size: 18px;
+      line-height: 12px;
+      text-align: center;
+      border: 1px solid #666;
+      color: #999999;
+      border-radius: 50%;
+    }
+    .active {
+      border: 1px solid #71c2ac;
+      color: #71c2ac;
+    }
+    .line:hover {
+      i {
+        border: 1px solid #999;
+        color: #1ba196;
+      }
+      span {
+        color:#1ba196;
+      }
+    }
+    span {
+      margin-left: 10px;
+      color: #666;
+    }
   }
 }
 

@@ -9,10 +9,11 @@ import Table from '../../../components/layout/Table';
 import Button from '../../../components/control/Button';
 import Switch from '../../../components/control/Switch';
 import DialogFrameView from '../../../components/control/Dialog/DialogFrameView'
+import CheckBox from '../../../components/control/CheckBox';
 
 const WorkFrameView = ({data, actions}) => {
-  let {tableLists, drawerStore, dialogStore} = data;
-  const {onShowDetail, onOpenDialog, onCloseDialog} = actions;
+  let {tableLists, drawerStore, dialogStore, ROLES, ROLES_MAP} = data;
+  const {onShowDetail, onOpenDialog, onCloseDialog, onAddRolesRequest, onDeleteRolesRequest} = actions;
 
   //模拟请求后获取的数据
   tableLists && tableLists.length ? null : (tableLists = [{
@@ -20,46 +21,33 @@ const WorkFrameView = ({data, actions}) => {
     _id: 111,
     enable: 'true',
     permissions: ['猪', '粉色', '猪', '粉色', '猪', '粉色', '猪', '粉色'],
-    roles: ['管理员', '巡检人员', '仓管']
+    roles: ['管理员', '巡检人员', '仓库管理员']
   }, {name: '柯南', _id: 222, tel: '1888888888', enable: 'false'}, {name: '小黄人', _id: 333}, {
     name: '小羊肖恩',
     _id: 444,
     enable: 'true'
   }, {name: '千寻', _id: 111}]);
 
-  const ROLES = {
-    超级管理员: 'super',
-    管理员: 'admin',
-    线上运营: 'manager',
-    巡检人员: 'inspector',
-    仓库管理员: 'storage',
-  };
-  const arr2 = ['超级管理员', '仓库管理员'];
 
-  const renderContain = (row) => {
-    return <div>
-      {row.permissions ? row.permissions.map((item, index) =>
-        <span> {item}</span>) : null}
-      <div>
-        {renderSelect(ROLES, arr2)}
-      </div>
-    </div>
-  };
-
-  const renderSelect = (ROLES, arr2,) => {
-
-    return Object.keys(ROLES).map((item, index) => <div>
-        <input
-          checked={ arr2.find(a=>{
-            console.log(a)
-            return a==item
-          }) }
-          type="checkbox"/>
-      <input checked={true} type="checkbox"/>
-      <input checked={false} type="checkbox"/>
-
-      {item}
-      </div>
+  const renderSelect = (roles, targetArr, id) => {
+    return Object.values(roles).map((item, index) => {
+        const boolean = targetArr.find(a => {
+          return a === ROLES[item]
+        });
+        return <div>
+          <CheckBox
+            key={index}
+            label={item}
+            onClick={() => {
+              if (boolean) {
+                onDeleteRolesRequest(id, ROLES[item])
+              } else {
+                onAddRolesRequest(id, ROLES[item])
+              }
+            }}
+            checked={boolean}/>
+        </div>
+      }
     )
   };
   const columns = [
@@ -92,11 +80,11 @@ const WorkFrameView = ({data, actions}) => {
     }, {
       name: '账户角色',
       render: row => <div>
-        <span>{row.roles ? row.roles.map((item) => <span style={{marginRight: '4px'}}>{item}</span>) : '未分配'}</span>
+        <span>{row.roles ? row.roles.map((item) => <span
+          style={{marginRight: '4px'}}>{ROLES_MAP[item]}</span>) : '未分配'}</span>
         <Button
           onClick={_ => {
-            // console.log(row.permissions);
-            onOpenDialog('更改账户角色', renderContain(row),
+            onOpenDialog('更改账户角色', <div>{renderSelect(ROLES_MAP, row.roles, row._id)}</div>,
               <Button
                 onClick={() => {
                   onCloseDialog()

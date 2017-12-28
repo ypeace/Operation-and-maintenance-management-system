@@ -6,7 +6,6 @@ export default ({children, className, disabled, fullWidth, flat, show, onToggleD
     <div>
 
       {show ? (
-
         <div className="dialogue" style={{display: show ? 'block' : 'none'}}>
           <div className="contain">
             <div className="contain-bottom">
