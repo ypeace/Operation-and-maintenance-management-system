@@ -14,10 +14,7 @@ export default ({ name,defaultValue = '' ,parameter,onClick = _ => null }) => {
             }
           }}
         />
-        <i onClick={(ev)=>{
-          onClick();
-          alert(ev.target.value)
-        }}>*回车键进行保存</i>
+        <i>*回车键确认</i>
       </div>
 
 }

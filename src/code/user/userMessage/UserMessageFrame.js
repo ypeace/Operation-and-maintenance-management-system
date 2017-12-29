@@ -88,8 +88,7 @@ const WorkFrameView = ({data, actions}) => {
         return (<Switch
           onToggle={() => {
             onSetAccountRoot(row._id, !row.enable)
-          }
-          }
+          }}
           toggled={row.enable}
         />)
       }
@@ -110,12 +109,12 @@ const WorkFrameView = ({data, actions}) => {
         >更改</Button>
       </div>
     }, {
-      name: '身份证认证',
+      name: '用户信息',
       render: row => <Button
         onClick={() => {
           onShowUserDetail(row._id);
         }}
-      >查看详细</Button>
+      >详细身份资料</Button>
     }, {
       name: '巡检信息',
       render: row => <Button

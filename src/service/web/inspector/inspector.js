@@ -1,4 +1,4 @@
-import v1 from './../v1';
+import v1 from '../../v1';
 
 export async function fetchInspector({query = {}, limit = 20, skip, sort = {_id: -1}}) {
   return await v1({

@@ -2,7 +2,7 @@
 import parserRoutes from '../../../utils/parseRoutes';
 import history from '../../../utils/history';
 
-import {fetchUserLists, addRoles, deleteRoles, accountRoot, addRoot} from '../../../service/user/user';
+import {fetchUserLists, addRoles, deleteRoles, accountRoot, addRoot} from '../../../service/web/user/userForMe';
 
 import DialogFrameStore from '../../../components/control/Dialog/DialogFrameStore';
 import DrawerFrameStore from '../../drawer/DrawerFrameStore';

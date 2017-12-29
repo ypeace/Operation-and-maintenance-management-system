@@ -1,4 +1,4 @@
-import {loginGetToken, loginGetRoot} from '../../service/root/login';
+import {loginGetToken, loginGetRoot} from '../../service/web/root/login';
 import md5 from '../../utils/md5';
 
 export default class IndexStore {

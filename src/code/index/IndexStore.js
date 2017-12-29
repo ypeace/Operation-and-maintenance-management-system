@@ -1,5 +1,5 @@
 import FrameStore from '../FrameStore';
-import {logoutDeleteToken} from '../../service/root/logout'
+import {logoutDeleteToken} from '../../service/web/root/logout'
 
 export default class IndexStore extends FrameStore{
   loading = true;

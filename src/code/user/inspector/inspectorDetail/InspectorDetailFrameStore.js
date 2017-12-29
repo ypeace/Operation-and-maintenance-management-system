@@ -1,6 +1,6 @@
 
 import parserRoutes from '../../../../utils/parseRoutes';
-import {fetchInspectorDetailById2} from '../../../../service/inspector/inspector';
+import {fetchInspectorDetailById2} from '../../../../service/web/inspector/inspector';
 
 import history from '../../../../utils/history';
 

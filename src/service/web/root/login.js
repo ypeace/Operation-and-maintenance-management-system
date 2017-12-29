@@ -1,4 +1,4 @@
-import { root as rootToken } from './../token';
+import { root as rootToken } from '../../token';
 
 export async function loginGetToken ({tel,password}) {
   return await rootToken({
