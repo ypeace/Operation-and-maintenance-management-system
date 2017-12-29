@@ -14,7 +14,7 @@ import CheckBox from '../../../components/control/CheckBox';
 
 const WorkFrameView = ({data, actions}) => {
   let {tableLists, drawerStore, dialogStore, ROLES, ROLES_MAP} = data;
-  const {onShowDetail, onOpenDialog, onCloseDialog, onAddRolesRequest, onDeleteRolesRequest, onSetAccountRoot, onAddRoot} = actions;
+  const {onShowUserDetail, onShowIspectorDetail,onOpenDialog, onCloseDialog, onAddRolesRequest, onDeleteRolesRequest, onSetAccountRoot, onAddRoot} = actions;
 
   //模拟请求后获取的数据
   tableLists && tableLists.length ? null : (tableLists = [{
@@ -110,12 +110,19 @@ const WorkFrameView = ({data, actions}) => {
         >更改</Button>
       </div>
     }, {
-      name: '用户详细资料',
+      name: '身份证认证',
       render: row => <Button
         onClick={() => {
-          onShowDetail(row._id);
+          onShowUserDetail(row._id);
         }}
-      >打开详情</Button>
+      >查看详细</Button>
+    }, {
+      name: '巡检信息',
+      render: row => <Button
+        onClick={() => {
+          onShowIspectorDetail(row._id);
+        }}
+      >查看详情</Button>
     }, {
       name: '权限',
       render: row => <div>

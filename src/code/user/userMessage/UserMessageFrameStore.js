@@ -12,6 +12,7 @@ export default class UserMessageFrameStore {
   loading = false;
   error = null;
   tableLists = [];
+  user = true;
   dialogStore =  new DialogFrameStore;
   drawerStore = new DrawerFrameStore();
   ROLES = {
@@ -58,10 +59,18 @@ export default class UserMessageFrameStore {
     const re = parserRoutes(['/:id'], location.pathname);
     console.log(re);
     if(!re) return this.drawerStore.close();
-    this.drawerStore.open(`用户详情[用户id：${re.id}]`, `/code/user/userDetail_frame.html#${re.id}`);
+    if(this.user){ this.drawerStore.open(`用户详情[用户id：${re.id}]`, `/code/user/userDetail_frame.html#${re.id}`);}else{
+      this.drawerStore.open(`巡检详情[用户id：${re.id}]`, `/code/user/inspectorMessageDetail_frame.html#${re.id}`);
+    }
   }
 
-  showDetail (id) {
+  showUserDetail(id){
+    this.user = true
+    history.push(`/${id}`);
+  }
+
+  showIspectorDetail(id){
+    this.user = false;
     history.push(`/${id}`);
   }
 
@@ -105,7 +114,7 @@ export default class UserMessageFrameStore {
   //增加权限
   AddRoot (id,permission){
     (async ()=>{
-      await addRoot({id,permission})
+      await addRoot({id,permission});
       setTimeout(()=>{
         this.dialogStore.close()
       },100);

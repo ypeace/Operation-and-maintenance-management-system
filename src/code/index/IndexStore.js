@@ -31,6 +31,21 @@ export default class IndexStore extends FrameStore{
     path: '/user',
     frameSrc: '/code/user_frame.html'
   },{
+    name: '运营站',
+    icon: '',
+    path: '',
+    frameSrc: ''
+  },{
+    name: '项目管理',
+    icon: '',
+    path: '',
+    frameSrc: ''
+  },{
+    name: '巡检订单',
+    icon: '',
+    path: '',
+    frameSrc: ''
+  },{
     name: '地图',
     icon: 'map',
     path: '/map' ,
@@ -40,16 +55,6 @@ export default class IndexStore extends FrameStore{
     icon: 'work',
     path: '/work',
     frameSrc: '/code/work_frame.html'
-  },/*{
-    name: '站点',
-    icon: '',
-    path: '',
-    frameSrc: ''
-  },{
-    name: '巡检订单',
-    icon: '',
-    path: '',
-    frameSrc: ''
-  },*/];
+  },];
 
 }
