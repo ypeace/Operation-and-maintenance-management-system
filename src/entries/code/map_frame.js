@@ -1,4 +1,4 @@
 import React from 'react';
 import initEntry from '../../initEntry';
-import MapFrame from '../../code/map/MapFrame';
+import MapFrame from '../../map/operateMap/operateMapIndex';
 initEntry(<MapFrame />);

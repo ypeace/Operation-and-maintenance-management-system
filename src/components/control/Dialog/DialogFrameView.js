@@ -12,12 +12,12 @@ export default ({data, actions}) => {
       <div className="container">
         <div
           className="content"
-          zDepth={2} >
+           >
           <h1>{title}</h1>
           <div className="text">{content}</div>
         </div>
-        <p >{bottom}
-        </p>
+        <div className="p">{bottom}
+        </div>
       </div>
     </div>
   );

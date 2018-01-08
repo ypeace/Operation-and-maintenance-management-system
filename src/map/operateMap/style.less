@@ -1,0 +1,235 @@
+.options {
+  width: 300px;
+  height: 100%;
+}
+
+.load {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  width: 200px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-100%);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar {
+  width: 100%;
+  background: #fff;
+  height: 100%;
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 5px;
+  }
+  p {
+    margin: 5px;
+  }
+  .menu {
+    font-size: 13px;
+    display: flex;
+    text-align: center;
+    margin: 2px;
+  }
+  .title {
+    margin: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.editButton {
+  display: flex;
+  text-align: center;
+  margin: 2px;
+}
+
+.unselected {
+  box-sizing: border-box;
+  flex: 1;
+  font-family: Roboto, sans-serif;
+  max-width: 80px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 2px;
+  outline: none;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: rgb(0, 188, 212);
+}
+
+.selected {
+  max-width: 80px;
+  flex: 1;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 2px;
+  outline: none;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 2px;
+  width: 100%;
+  background-color: rgb(255, 64, 129);
+  text-align: center;
+}
+
+.inputBox {
+  margin: 10px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+}
+
+.enterInput {
+  padding: 0;
+  min-width: 50px;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0.87);
+  opacity: 1;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  border-bottom: 1px solid #000000;
+}
+
+.driverList {
+  font-family: Roboto, sans-serif;
+  width: 100%;
+  height: 100%;
+  .select{
+    margin:5px;
+    select{
+      border: none;
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+  .search{
+    margin: 5px;
+    font-size: 13px;
+    .searchInput{
+      border: none;
+      border-bottom: 1px solid #e5e5e5;
+    }
+  }
+  .driverItems {
+    width: 98%;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+    .driver {
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 14px;
+      line-height: 16px;
+      position: relative;
+      padding: 20px 0 12px 50px;
+      img {
+        color: rgb(255, 255, 255);
+        background-color: rgb(188, 188, 188);
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        user-select:none;
+      }
+    }
+    .management{
+      display: flex;
+      margin-left: 5px;
+        .taskGroup {
+          border: 1px solid #e5e5e5;
+          height: 60px;
+          overflow: scroll;
+          flex: 1;
+          margin: 1px;
+        }
+        .assignInspectionArea{
+          border: 1px solid #e5e5e5;
+          height: 60px;
+          overflow: scroll;
+          flex: 1;
+          margin: 1px;
+        }
+    }
+    .assign{
+      display: flex;
+      justify-content:space-around;
+      span{
+        flex: 1;
+        text-align: center;
+        font-family: Roboto, sans-serif;
+        max-width: 80px;
+        color: #fff;
+        cursor: pointer;
+        margin: 2px;
+        outline: none;
+        line-height: 20px;
+        width: 100%;
+        border-radius: 2px;
+        background-color: rgb(0, 188, 212);
+
+      }
+      .distribution {
+        background-color: rgb(255, 64, 129);
+      }
+    }
+    .work{
+      display: flex;
+      margin-left: 2px;
+      justify-content:space-around;
+      span{
+        flex: 1;
+        text-align: center;
+        font-family: Roboto, sans-serif;
+        max-width: 80px;
+        color: #fff;
+        cursor: pointer;
+        margin: 2px;
+        outline: none;
+        line-height: 20px;
+        width: 100%;
+        border-radius: 2px;
+        background-color: rgb(0, 188, 212);
+      }
+      .offwork {
+        background-color: rgb(255, 64, 129);
+      }
+    }
+
+  }
+}
+
+.bikeList{
+  width: 100%;
+  height: 820px;
+  padding: 2px;
+  font-size: 13px;
+  position: relative;
+  overflow-y: scroll;
+  .itemBox{
+    padding-bottom: 10px;
+    margin:5px;
+    text-align:left;
+    .itemBoxTitle{
+      font-size: 15px;
+      font-weight: 600;
+      padding-left:5px;
+      margin:5px ;
+    }
+  }
+}

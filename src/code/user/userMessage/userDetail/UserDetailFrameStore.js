@@ -1,4 +1,4 @@
-import {fetchUserDetailById, deleteIdcard, passIdcard, rejectIdcard,isMustResolveRequest, passInspector, rejectInspector} from '../../../../service/web/user/userForMe';
+import {fetchUserDetailById, deleteIdcard, passIdcard, rejectIdcard,isMustResolveRequest, passInspector, rejectInspector} from '../../../../service/web/user/use';
 import parserRoutes from '../../../../utils/parseRoutes';
 
 import history from '../../../../utils/history';
@@ -123,7 +123,6 @@ export default class UserDetailFrameStore {
     })
   }
 
-
   //通过巡检审核
   PassInspector(){
     (async () => {
@@ -149,6 +148,5 @@ export default class UserDetailFrameStore {
       this.error = error;
     })
   }
-
 
 }

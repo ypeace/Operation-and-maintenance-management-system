@@ -8,7 +8,9 @@ export default ({dataSource = [], columns = [], className}) => {
         <thead>
         <tr>
           {columns.map((column, index) => (
-            <td>{column.name}</td>
+            <td
+            key = {index}
+            >{column.name}</td>
           ))}
         </tr>
         </thead>

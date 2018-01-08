@@ -14,7 +14,6 @@ export default ({ data, actions }) => {
       >返回</span>
       <div
         className="container"
-        zDepth={2}
       >
         <h1>{title}</h1>
         <iframe

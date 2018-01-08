@@ -1,4 +1,4 @@
-import {fetchInspector} from '../../../service/web/inspector/inspector';
+import {fetchInspector} from '../../../service/web/operate/inspector';
 import DrawerFrameStore from '../../drawer/DrawerFrameStore';
 import parserRoutes from '../../../utils/parseRoutes';
 import history from '../../../utils/history';

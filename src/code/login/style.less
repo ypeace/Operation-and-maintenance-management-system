@@ -1,6 +1,6 @@
 .box {
   width: 100%;
-  padding-bottom: 120px;
+  height:100%;
   background-color:darkslateblue;
   :global {
     .img-logo{
@@ -12,7 +12,7 @@
       margin-bottom:40px;
     }
     .login-form {
-      padding: 100px 0px 50px 0px;
+      padding: 200px 0px 50px 0px;
     }
 
     .login-top {
@@ -51,22 +51,33 @@
     .log-bwn {
       text-align: center;
     }
-    .log-bwn input[type="button"] {
+    .log-bwn input{
       font-size: 15px;
       font-weight: 700;
       color: #fff;
       padding: 13px 0;
       background: #2da296;
       display: inline-block;
-      width: 100%;
+      width: 49%;
       outline: none;
-      border: 3px solid #2da296;
       cursor: pointer;
       text-transform: uppercase;
     }
+    .log-bwn .register {
+      border: 3px solid #2da296;
+
+    }
+    .log-bwn .login{
+      background-color: #71c2ac;
+      color:#ffffff;
+      border: 3px solid #71c2ac;
+      margin-right:2%;
+
+    }
+
     .log-bwn input[type="button"]:hover {
       transition: all 0.3s ease;
-      border: 3px solid #76c2ac;
+      border: 3px solid #019688;
     }
       .login-ic input[type="text"], .login-ic input[type="password"] {
         width: 76%;

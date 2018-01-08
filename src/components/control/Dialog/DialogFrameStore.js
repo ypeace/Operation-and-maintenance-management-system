@@ -3,7 +3,7 @@ export default class DrawerFrameStore {
 
   title = '';
   content = null;
-  bottom = null
+  bottom = null;
   open (title,content,bottom) {
     this.title = title;
     this.isOpen = true;
@@ -12,7 +12,6 @@ export default class DrawerFrameStore {
   }
 
   close () {
-    console.log('close');
     this.isOpen = false;
   }
 

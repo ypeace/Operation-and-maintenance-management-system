@@ -10,8 +10,14 @@ export default class IndexStore extends FrameStore{
 
   load() {
     this.prompt = localStorage.getItem('tel') ? true : false;
-    this.tel = this.prompt ? localStorage.getItem('tel') : '未登录';
-    super.load();
+    if(this.prompt){
+      this.tel = localStorage.getItem('tel');
+      super.load();
+    }else{
+      setTimeout(_=>{
+        window.location.href = '/login.html';
+      },1000)
+    }
   }
 
   logout() {
@@ -26,35 +32,35 @@ export default class IndexStore extends FrameStore{
   }
 
   menus = [{
-    name: '用户',
+    name: '用户管理',
     icon: 'user',
     path: '/user',
     frameSrc: '/code/user_frame.html'
   },{
     name: '运营站',
-    icon: '',
-    path: '',
-    frameSrc: ''
+    icon: 'operate',
+    path: '/operate',
+    frameSrc: '/code/operate_frame.html'
   },{
     name: '项目管理',
-    icon: '',
-    path: '',
-    frameSrc: ''
+    icon: 'project',
+    path: '/project',
+    frameSrc: '/code/project_frame.html'
   },{
     name: '巡检订单',
-    icon: '',
-    path: '',
-    frameSrc: ''
+    icon: 'inspectOrder',
+    path: '/inspectOrder',
+    frameSrc: '/code/inspectOrder_frame.html'
   },{
     name: '地图',
     icon: 'map',
     path: '/map' ,
     frameSrc:'/code/map_frame.html'
-  },{
-    name: '组件测试页',
-    icon: 'work',
-    path: '/work',
-    frameSrc: '/code/work_frame.html'
-  },];
+  },/*{
+    name: '巡检订单',
+    icon: 'operate',
+    path: 'operate',
+    frameSrc: '/code/operate_frame.html'
+  },*/];
 
 }

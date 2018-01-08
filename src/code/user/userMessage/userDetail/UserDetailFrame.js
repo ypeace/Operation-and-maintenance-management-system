@@ -11,8 +11,8 @@ import ChangeInput from '../../../../components/control/ChangeInput';
 import Switch from '../../../../components/control/Switch'
 
 const UserDetailFrameView = ({data, actions}) => {
-  let {show, onOff, result = {}, dialogStore, USER_STATE_MAP, USER_INSPECTOR__STATE_MAP, CAR_MAP, id} = data;
-  const {onToggleDialog, onChangeSwitch, onOpenDialog, onCloseDialog, onDeleteIdcard, onPassIdcard, onRejectIdcard, onIsMustResolveRequest, onRejectInspector, onPassInspector} = actions;
+  let { result = {}, dialogStore, USER_STATE_MAP, USER_INSPECTOR__STATE_MAP, CAR_MAP, id} = data;
+  const {onOpenDialog, onCloseDialog, onDeleteIdcard, onPassIdcard, onRejectIdcard, onIsMustResolveRequest, onRejectInspector, onPassInspector} = actions;
 
   const {idCardInfo = {}, inspectorInfo = {}} = result;
 

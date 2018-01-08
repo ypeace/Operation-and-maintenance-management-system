@@ -5,7 +5,7 @@ import style from './style.less';
 
 const LoginView = ({data, actions}) => {
   const {tel, passWord} = data;
-  const {onUserKeyUP, onPassWordKeyUP, onLogin } = actions;
+  const {onInputUserName, onInputPassWord, onLogin,onRegister } = actions;
   return (
     <div className={style.box} >
       <div>
@@ -26,7 +26,7 @@ const LoginView = ({data, actions}) => {
                   placeholder="User name"
                   value={tel}
                   onChange={ev =>{
-                    onUserKeyUP(ev.target.value)
+                    onInputUserName(ev.target.value)
                   }}
                 />
               </div>
@@ -37,20 +37,28 @@ const LoginView = ({data, actions}) => {
                   placeholder="password"
                   value={passWord}
                   onChange={ev =>{
-                    onPassWordKeyUP(ev.target.value)
+                    onInputPassWord(ev.target.value)
                   }}
                 />
               </div>
 
               <div className="log-bwn">
                 <input
+                  className="login"
                   type="button"
                   value="登录"
                   onClick={_ => {
                     onLogin()
-                    // onLogin(userName,passWord)
                   }}
                 />
+                <input
+                  className="register"
+                  type="button"
+                value="注册"
+                onClick={_ => {
+                  onRegister()
+                }}
+              />
               </div>
           </div>
         </div>

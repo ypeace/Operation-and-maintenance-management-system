@@ -1,12 +1,13 @@
 import axios from 'axios';
 import clone from 'clone';
+
 const Toast = window.iziToast;//弹窗
 
-export default (host, end) =>{
+export default (host, end) => {
   const ins = axios.create({//创建axios实例
     baseURL: [host, end].filter(v => !!v).join('/')
   });
-  ins.interceptors.request.use(request =>{
+  ins.interceptors.request.use(request => {
     request.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
     if (request.params) {
       request.params = clone(request.params);
@@ -22,7 +23,11 @@ export default (host, end) =>{
   ins.interceptors.response.use(response => {
     return response.data;
   }, error => {
-    console.log(error)
+    if (error.response.status === 500) {
+      Toast.error({ title: error.response.data.error })
+    } else {
+      Toast.error({ title: error.response.data.orginalError })
+    }
   });
 
   return ins;

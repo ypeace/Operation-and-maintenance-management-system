@@ -38,17 +38,29 @@ module.exports = {
       template: 'index.tmpl.html',
       title: '巡检管理'
     },
-    'code/work_frame': {
+    'code/operate_frame': {
       template: 'index.tmpl.html',
       title: '运营管理'
     },
-    'code/work/assembly_frame': {
+    'code/project_frame': {
       template: 'index.tmpl.html',
-      title: '运营管理'
+      title: '项目管理'
+    },
+    'code/project/settingDetail_frame': {
+      template: 'index.tmpl.html',
+      title: '项目管理'
     },
     'code/map_frame': {
       template: 'index.tmpl.html',
       title: '地图'
+    },
+    'code/inspectOrder_frame': {
+      template: 'index.tmpl.html',
+      title: '巡检订单管理'
+    },
+    'code/inspectOrder/inspectOrderPrice_frame': {
+      template: 'index.tmpl.html',
+      title: '巡检订单价格管理'
     },
   },
 };

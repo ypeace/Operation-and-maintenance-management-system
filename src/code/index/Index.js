@@ -15,7 +15,8 @@ const IndexView = ({data, actions}) => {
           className="header">
           <img
             className="logo"
-            src='./image/logo.png'/>
+            src='./image/logo.png'
+          />
           <div
             className="logOut"
             onClick={_ => {
@@ -45,7 +46,7 @@ const IndexView = ({data, actions}) => {
             })
             }
           </aside>
-          <iframe onLoad={onFrameLoaded} className="frame" src={frameSrc}></iframe>
+          <iframe onLoad={onFrameLoaded} className="frame" src={frameSrc}> </iframe>
         </main>
       </div>
     </div>

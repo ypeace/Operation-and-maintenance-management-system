@@ -1,30 +1,41 @@
-import {loginGetToken, loginGetRoot} from '../../service/web/root/login';
+import { loginGetToken, register,loginGetRoot } from '../../service/web/root/login';
 import md5 from '../../utils/md5';
 
 export default class IndexStore {
   tel = '';
   passWord = '';
 
-  telKeyUP(value) {
-    this.tel = value?value:'';
+  inputUserName (value) {
+    this.tel = value;
   }
 
-  passWordKeyUP(value) {
-    this.passWord = value?value:'';
+  inputPassWord (value) {
+    this.passWord = value;
   }
 
-  login(tel='18888888888',password='123456'){
+  login () {
     (async _ => {
-     const token = await loginGetToken({tel,password:md5(password) });
-      localStorage.setItem("token",token.token);
-      const roles = await loginGetRoot({tel,password});
-     setTimeout(()=>{
-       localStorage.setItem("roles",roles);
-       localStorage.setItem("tel",tel);
-       window.location.href = '/';
-     },20)
-    })().catch(error => {
-      console.error(error);
-    });
+      const token = await loginGetToken({ tel: this.tel, password: md5(this.passWord) });
+      localStorage.setItem('tel',this.tel);
+      if(!token) return window.iziToast.error({title:'登录失败'});
+      localStorage.setItem("token", token.token);
+      const token2 = await loginGetRoot();
+      localStorage.setItem("roles", token2.roles);
+      setTimeout(_=>{
+        window.location.href = '/';
+      },2000)
+    })()
   }
+
+  register(){
+    (async _ => {
+      const token = await register({ tel: this.tel, password: md5(this.passWord) });
+      if(token) return window.iziToast.error({title:'注册成功,请登录'});
+      if(!token) return window.iziToast.error({title:'注册失败'});
+      this.tel = '';
+      this.passWord = '';
+    })()
+  }
+
+
 }

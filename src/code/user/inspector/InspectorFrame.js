@@ -82,7 +82,7 @@ const InspectorFrameView = ({data, actions}) => {
     <div>
       <Box>
         {/*<Nav> 用户管理 </Nav>*/}
-        <Container>筛选条件</Container>
+        <Container>筛选条件2223</Container>
 
         <Container>
           <Table
