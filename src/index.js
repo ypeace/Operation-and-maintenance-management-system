@@ -12,7 +12,7 @@ module.exports = {
     },
     login: {
       template: 'index.tmpl.html',
-      title: '芒果运维管理平台-登陆',
+      title: '芒果运维管理平台-登陆2',
     },
     'code/user_frame': {
       template: 'index.tmpl.html',
